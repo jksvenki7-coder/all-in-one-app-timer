@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Timer Challenge Game</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="game-container">
+
+    <header>
+
+        <h1>
+            ⏱ Timer Challenge
+        </h1>
+
+        <p>
+            Stop the timer at the perfect moment
+        </p>
+
+    </header>
+
+    <section class="player-section">
+
+        <div class="player-card">
+
+            <h3>Player</h3>
+
+            <h2 id="playerName">
+                Guest
+            </h2>
+
+        </div>
+
+        <div class="mode-card">
+
+            <h3>Mode</h3>
+
+            <h2 id="gameMode">
+                Easy
+            </h2>
+
+        </div>
+
+    </section>
+
+    <section class="target-section">
+
+        <h3>
+
+            🎯 Target Time
+
+        </h3>
+
+        <h2 id="targetTime">
+
+            10 Seconds
+
+        </h2>
+
+    </section>
+
+    <section class="timer-section">
+
+        <div
+            id="timer">
+
+            0.00
+
+        </div>
+
+    </section>
+
+    <section class="button-section">
+
+        <button
+            id="startBtn">
+
+            ▶ Start
+
+        </button>
+
+        <button
+            id="stopBtn">
+
+            ⏹ Stop
+
+        </button>
+
+        <button
+            id="resetBtn">
+
+            🔄 Reset
+
+        </button>
+
+    </section>
+
+    <section class="progress-section">
+
+        <div class="progress">
+
+            <div
+                id="progressBar">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="status-section">
+
+        <div class="status-box">
+
+            <h4>🏆 Score</h4>
+
+            <span id="score">
+
+                0
+
+            </span>
+
+        </div>
+
+        <div class="status-box">
+
+            <h4>⭐ Stars</h4>
+
+            <span id="stars">
+
+                0
+
+            </span>
+
+        </div>
+
+        <div class="status-box">
+
+            <h4>🪙 Coins</h4>
+
+            <span id="coins">
+
+                0
+
+            </span>
+
+        </div>
+
+        <div class="status-box">
+
+            <h4>❤️ Lives</h4>
+
+            <span id="lives">
+
+                3
+
+            </span>
+
+        </div>
+
+    </section>
+
+    <section class="result-section">
+
+        <div
+            id="result">
+
+            Press Start To Play
+
+        </div>
+
+    </section>
+
+</div>
+
+<script
+    src="js/script.js">
+
+</script>
+
+</body>
+
+</html>
+
+/* =========================================
+   PART 8B
+   PLAYER - TARGET - TIMER - BUTTONS
+========================================= */
+
+.player-section{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-bottom:20px;
+
+}
+
+.player-card,
+.mode-card{
+
+    flex:1;
+
+    background:rgba(255,255,255,.15);
+
+    border-radius:18px;
+
+    padding:18px;
+
+    text-align:center;
+
+    border:1px solid rgba(255,255,255,.18);
+
+}
+
+.player-card h3,
+.mode-card h3{
+
+    color:#cbd5e1;
+
+    font-size:15px;
+
+    margin-bottom:8px;
+
+}
+
+.player-card h2,
+.mode-card h2{
+
+    color:#ffffff;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+}
+
+.target-section{
+
+    margin-bottom:25px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.15);
+
+    border-radius:18px;
+
+    padding:18px;
+
+    border:1px solid rgba(255,255,255,.18);
+
+}
+
+.target-section h3{
+
+    color:#dbeafe;
+
+    font-size:17px;
+
+    margin-bottom:10px;
+
+}
+
+.target-section h2{
+
+    color:#facc15;
+
+    font-size:30px;
+
+    font-weight:bold;
+
+}
+
+.timer-section{
+
+    margin-bottom:30px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+#timer{
+
+    width:230px;
+
+    height:230px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.18);
+
+    border:6px solid rgba(255,255,255,.25);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#ffffff;
+
+    font-size:56px;
+
+    font-weight:bold;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.30);
+
+}
+
+.button-section{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-bottom:25px;
+
+}
+
+.button-section button{
+
+    flex:1;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+#startBtn{
+
+    background:#22c55e;
+
+    color:#ffffff;
+
+}
+
+#startBtn:hover{
+
+    background:#16a34a;
+
+    transform:translateY(-2px);
+
+}
+
+#stopBtn{
+
+    background:#ef4444;
+
+    color:#ffffff;
+
+}
+
+#stopBtn:hover{
+
+    background:#dc2626;
+
+    transform:translateY(-2px);
+
+}
+
+#resetBtn{
+
+    background:#3b82f6;
+
+    color:#ffffff;
+
+}
+
+#resetBtn:hover{
+
+    background:#2563eb;
+
+    transform:translateY(-2px);
+
+/* =========================================
+   PART 8C
+   PROGRESS - STATUS - RESULT
+   ANIMATIONS - RESPONSIVE
+========================================= */
+
+.progress-section{
+
+    margin-bottom:25px;
+
+}
+
+.progress{
+
+    width:100%;
+
+    height:12px;
+
+    background:rgba(255,255,255,.15);
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+}
+
+#progressBar{
+
+    width:0%;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        #22c55e,
+        #facc15
+    );
+
+    transition:width .1s linear;
+
+}
+
+.status-section{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+
+    margin-bottom:25px;
+
+}
+
+.status-box{
+
+    background:rgba(255,255,255,.15);
+
+    border:1px solid rgba(255,255,255,.20);
+
+    border-radius:16px;
+
+    padding:18px;
+
+    text-align:center;
+
+}
+
+.status-box h4{
+
+    color:#dbeafe;
+
+    font-size:15px;
+
+    margin-bottom:10px;
+
+}
+
+.status-box span{
+
+    color:#ffffff;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+.result-section{
+
+    text-align:center;
+
+}
+
+#result{
+
+    background:rgba(255,255,255,.15);
+
+    border:1px solid rgba(255,255,255,.20);
+
+    border-radius:16px;
+
+    padding:18px;
+
+    color:#ffffff;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    min-height:65px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .game-container{
+
+        width:95%;
+
+        padding:20px;
+
+    }
+
+    .player-section{
+
+        flex-direction:column;
+
+    }
+
+    #timer{
+
+        width:190px;
+
+        height:190px;
+
+        font-size:46px;
+
+    }
+
+    .button-section{
+
+        flex-direction:column;
+
+    }
+
+    .status-section{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    header h1{
+
+        font-size:28px;
+
+    }
+
+    header p{
+
+        font-size:14px;
+
+    }
+
+    .target-section h2{
+
+        font-size:24px;
+
+    }
+
+    #timer{
+
+        width:160px;
+
+        height:160px;
+
+        font-size:38px;
+
+    }
+
+    .button-section button{
+
+        height:50px;
+
+        font-size:16px;
+
+    }
+
+    .status-box span{
+
+        font-size:24px;
+
+    }
+
+    #result{
+
+        font-size:17px;
+
+    }
+
+}
