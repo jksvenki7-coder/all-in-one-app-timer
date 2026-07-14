@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Timer Challenge - Select Mode</title>
+
+    <link rel="stylesheet" href="css/challenge.css">
+
+</head>
+
+<body>
+
+    <div class="background"></div>
+
+    <div class="challenge-container">
+
+        <div class="header">
+
+            <h1>⏱ Timer Challenge</h1>
+
+            <p>Choose Your Challenge</p>
+
+        </div>
+
+        <div class="player-box">
+
+            <h3>Welcome</h3>
+
+            <h2 id="playerName">Player</h2>
+
+        </div>
+
+        <div class="mode-list">
+
+            <label class="mode-card">
+
+                <input
+                    type="radio"
+                    name="mode"
+                    value="easy"
+                    checked>
+
+                <div class="mode-content">
+
+                    <h2>🟢 Easy</h2>
+
+                    <p>Target Time : 10 Seconds</p>
+
+                    <span>Perfect for Beginners</span>
+
+                </div>
+
+            </label>
+
+            <label class="mode-card">
+
+                <input
+                    type="radio"
+                    name="mode"
+                    value="medium">
+
+                <div class="mode-content">
+
+                    <h2>🟡 Medium</h2>
+
+                    <p>Target Time : 15 Seconds</p>
+
+                    <span>Normal Challenge</span>
+
+                </div>
+
+            </label>
+
+            <label class="mode-card">
+
+                <input
+                    type="radio"
+                    name="mode"
+                    value="hard">
+
+                <div class="mode-content">
+
+                    <h2>🔴 Hard</h2>
+
+                    <p>Target Time : 20 Seconds</p>
+
+                    <span>High Precision Required</span>
+
+                </div>
+
+            </label>
+
+            <label class="mode-card">
+
+                <input
+                    type="radio"
+                    name="mode"
+                    value="extreme">
+
+                <div class="mode-content">
+
+                    <h2>⚫ Extreme</h2>
+
+                    <p>Target Time : 30 Seconds</p>
+
+                    <span>Only for Masters</span>
+
+                </div>
+
+            </label>
+
+        </div>
+
+        <button
+            id="startGameBtn">
+
+            ▶ Start Game
+
+        </button>
+
+    </div>
+
+    <script src="js/challenge.js"></script>
+
+</body>
+
+</html>
